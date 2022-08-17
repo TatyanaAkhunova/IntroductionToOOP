@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
 using std::cin;
 using std::cout;
@@ -31,14 +31,14 @@ public:
 
 	/*Point()
 	{
-		x = y = double(); //значение по умолчанию для double
+		x = y = double(); //Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РґР»СЏ double
 		cout << "Constructor:\t" << this << endl;
 	}
 	Point(double x)
 	{
 		this->x = x;
 		this->y = double();
-		cout << "largConstructor:" << this << endl; //конструктор с одним параметром
+		cout << "largConstructor:" << this << endl; //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РѕРґРЅРёРј РїР°СЂР°РјРµС‚СЂРѕРј
 	}*/
 	Point(double x = 0, double y = 0)
 	{
@@ -116,11 +116,11 @@ void main()
 {
 	setlocale(LC_ALL, "");
 #ifdef STRUCT_POINT
-	int a; //объявление переменной 'a' типа 'int'
+	int a; //РѕР±СЉСЏРІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ 'a' С‚РёРїР° 'int'
 	//type name;
-	Point A; //объявление переменной 'A' типа 'Point'
-			 // объявление объекта 'A' типа 'Point'
-			 // объявление экземпляра 'A' структуры 'Point' 
+	Point A; //РѕР±СЉСЏРІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ 'A' С‚РёРїР° 'Point'
+			 // РѕР±СЉСЏРІР»РµРЅРёРµ РѕР±СЉРµРєС‚Р° 'A' С‚РёРїР° 'Point'
+			 // РѕР±СЉСЏРІР»РµРЅРёРµ СЌРєР·РµРјРїР»СЏСЂР° 'A' СЃС‚СЂСѓРєС‚СѓСЂС‹ 'Point' 
 	A.x = 2;
 	A.y = 3;
 
@@ -140,17 +140,17 @@ void main()
 	B.set_y(8);
 	cout << B.get_x() << "\t" << B.get_y() << endl;
 	cout << delimiter << endl;
-	cout << "Расстояние от точки А до точки В: " << A.distance(B) << endl;
+	cout << "Р Р°СЃСЃС‚РѕСЏРЅРёРµ РѕС‚ С‚РѕС‡РєРё Рђ РґРѕ С‚РѕС‡РєРё Р’: " << A.distance(B) << endl;
 	cout << delimiter << endl;
-	cout << "Расстояние от точки B до точки A: " << B.distance(A) << endl;
+	cout << "Р Р°СЃСЃС‚РѕСЏРЅРёРµ РѕС‚ С‚РѕС‡РєРё B РґРѕ С‚РѕС‡РєРё A: " << B.distance(A) << endl;
 	cout << delimiter << endl;
-	cout << "Расстояние между точками А и В: " << distance(A, B) << endl;
+	cout << "Р Р°СЃСЃС‚РѕСЏРЅРёРµ РјРµР¶РґСѓ С‚РѕС‡РєР°РјРё Рђ Рё Р’: " << distance(A, B) << endl;
 	cout << delimiter << endl;
-	cout << "Расстояние между точками В и А: " << distance(B, A) << endl;
+	cout << "Р Р°СЃСЃС‚РѕСЏРЅРёРµ РјРµР¶РґСѓ С‚РѕС‡РєР°РјРё Р’ Рё Рђ: " << distance(B, A) << endl;
 #endif // DISTANCE
 
 #ifdef CONSTRUCTORS_CHECK
-	Point A; //Default constructor /Конструктор по умолчанию, без параметров
+	Point A; //Default constructor /РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 	A.print();
 	cout << double() << endl;
 
