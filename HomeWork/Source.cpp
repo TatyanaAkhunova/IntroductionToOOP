@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
 
 class Fraction
@@ -17,7 +17,7 @@ public:
 		if (den != 0)
 			denominator = den;
 		else
-			cout << "Знаменатель не может быть равен нулю" << endl;
+			cout << "Р—РЅР°РјРµРЅР°С‚РµР»СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ СЂР°РІРµРЅ РЅСѓР»СЋ" << endl;
 	}
 	int get_numerator()
 	{
@@ -66,7 +66,7 @@ public:
 		f3.denominator = f1.denominator * f2.numerator;
 		return f3;
 	}
-	Fraction Pow(Fraction f, int n) //возведение в степень //f2=f=>(f2.num=f.num)&&(f2.den=f.den)
+	Fraction Pow(Fraction f, int n) //РІРѕР·РІРµРґРµРЅРёРµ РІ СЃС‚РµРїРµРЅСЊ //f2=f=>(f2.num=f.num)&&(f2.den=f.den)
 	{
 		Fraction f2(f.numerator, f.denominator);
 		for (int i = 1; i < n; i++)
@@ -76,7 +76,7 @@ public:
 		}
 		return f2;
 	}
-	bool Compare(Fraction f1, Fraction f2) //Сравнение дробей
+	bool Compare(Fraction f1, Fraction f2) //РЎСЂР°РІРЅРµРЅРёРµ РґСЂРѕР±РµР№
 	{
 		f1.numerator *= f2.denominator;
 		f1.denominator *= f2.denominator;
@@ -84,7 +84,7 @@ public:
 		f2.denominator *= f1.denominator;
 
 	}
-	bool Equals(Fraction f1, Fraction f2) //равно
+	bool Equals(Fraction f1, Fraction f2) //СЂР°РІРЅРѕ
 	{
 		f1.numerator *= f2.denominator;
 		
@@ -92,11 +92,11 @@ public:
 		
 		return f1.numerator == f2.numerator;
 	}
-	bool NotEquals(Fraction f1, Fraction f2) //не равно
+	bool NotEquals(Fraction f1, Fraction f2) //РЅРµ СЂР°РІРЅРѕ
 	{
 		return!Equals(f1, f2);
 	}
-	bool Less(Fraction f1, Fraction f2) //меньше
+	bool Less(Fraction f1, Fraction f2) //РјРµРЅСЊС€Рµ
 	{
 		f1.numerator *= f2.denominator;
 		
@@ -104,7 +104,7 @@ public:
 		
 		return f1.numerator < f2.numerator;
 	}
-	bool More(Fraction f1, Fraction f2) //больше
+	bool More(Fraction f1, Fraction f2) //Р±РѕР»СЊС€Рµ
 	{
 		f1.numerator *= f2.denominator;
 		
@@ -112,13 +112,13 @@ public:
 		
 		return f1.numerator > f2.numerator;
 	}
-	Fraction Square(Fraction &f) //извлечение квадратного корня
+	Fraction Square(Fraction &f) //РёР·РІР»РµС‡РµРЅРёРµ РєРІР°РґСЂР°С‚РЅРѕРіРѕ РєРѕСЂРЅСЏ
 	{
 		f.numerator = sqrt(f.numerator);
 		f.denominator = sqrt(f.denominator);
 		return f;
 	}
-	double Decimal(Fraction f) //перевод в десятичную дробь
+	double Decimal(Fraction f) //РїРµСЂРµРІРѕРґ РІ РґРµСЃСЏС‚РёС‡РЅСѓСЋ РґСЂРѕР±СЊ
 	{
 		return f.numerator / f.denominator;
 	}
