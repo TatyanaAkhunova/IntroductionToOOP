@@ -5,7 +5,8 @@ class Fraction
 {
 	int numerator;
 	int denominator;
-
+	int integer;
+	int cancellation;
 
 public:
 	void set_numerator(int num)
@@ -18,6 +19,10 @@ public:
 			denominator = den;
 		else
 			cout << "Знаменатель не может быть равен нулю" << endl;
+	}
+	void set_integer(int integer)
+	{
+		this->integer = integer;
 	}
 	int get_numerator()
 	{
@@ -82,7 +87,6 @@ public:
 		f1.denominator *= f2.denominator;
 		f2.numerator *= f2.denominator;
 		f2.denominator *= f1.denominator;
-
 	}
 	bool Equals(Fraction f1, Fraction f2) //равно
 	{
@@ -112,6 +116,22 @@ public:
 		
 		return f1.numerator > f2.numerator;
 	}
+	bool Less_Equals(Fraction f1, Fraction f2) //меньше
+	{
+		f1.numerator *= f2.denominator;
+
+		f2.numerator *= f2.denominator;
+
+		return f1.numerator <= f2.numerator;
+	}
+	bool More_Equals(Fraction f1, Fraction f2) //больше
+	{
+		f1.numerator *= f2.denominator;
+
+		f2.numerator *= f2.denominator;
+
+		return f1.numerator >= f2.numerator;
+	}
 	Fraction Square(Fraction &f) //извлечение квадратного корня
 	{
 		f.numerator = sqrt(f.numerator);
@@ -126,13 +146,35 @@ public:
 	{
 		cout << numerator << "/" << denominator;
 	}
-
+	Fraction Reduction(Fraction f1, Fraction f2) //сокращение дробей
+	{
+		
+	}
+		/*{
+			if (f2.numerator > f2.denominator)
+			{
+				f2.numerator %= f2.denominator;
+			}
+			else
+			{
+				f2.denominator %= f2.numerator;
+			}
+			return f2.numerator+f2.denominator;
+		}*/
+	
+	Fraction to_proper(Fraction f) //выделяет целую часть /перевод дроби в правильную
+	{
+		Fraction F2(f.numerator, f.denominator);
+		integer += numerator / denominator;
+		(numerator %= denominator) ? cout << integer << "\t" : cout << numerator % denominator; ;
+		return F2;
+	}
 };
 
 	int main()
 	{
 		setlocale(0, "");
-		Fraction f(1,2), f1(3,4);
+		Fraction f(5, 4), f1(1,3);
 		f.Print();
 		cout << "\t";
 		f1.Print();
@@ -158,21 +200,28 @@ public:
 		cout << "\t";
 		bool temp;
 		temp = f.More(f1, f);
-		cout << temp << endl;
+		cout << temp << "\t";
 		temp = f.Less(f1, f);
 		cout << temp << "\t";
 		temp = f.Equals(f1, f);
 		cout << temp << "\t";
-		cout << "\t";
 		temp = f.NotEquals(f1, f);
 		cout << temp << "\t";
-		double t = f.Decimal(f);
+		temp = f.Less_Equals(f1, f);
+		cout << temp << "\t";
+		temp = f.More_Equals(f1, f);
+		cout << temp << "\t";
+		cout << "Выделение целой части из дроби " << endl;
+		f2 = f.to_proper(f);
+		f2.Print();
+		cout << "\t";
+		f2 = f.Reduction(f, f1);
+		f2.Print();
+		cout << "\t";
+        double t = f.Decimal(f);
 		cout << t;
 		return 0;
 	}
-
-
-
 
 
 
