@@ -12,14 +12,22 @@ class Fraction
 	int den;
 	int integral;
 public:
+	void set(int&, int&);
 	//Fraction(){}
-	Fraction() :num(0), den(1), integral{ 0 }{} //конструктор по умолчанию
+	//конструктор по умолчанию
+	Fraction() :num(0), den(1), integral{ 0 }
+	{cout << "Default"<<this << endl; } 
 	/*Fraction(int _num, int _den) {
 		num = _num;
 		den = _den;
 		integral = 0;
 	}*/
-	Fraction(int _num, int _den):num(_num), den(_den), integral{0} {}
+	//констуктор с параметрами
+	Fraction(int _num, int _den):num(_num), den(_den), integral{0} 
+	{cout << "Param" << this << endl; }
+	//конструктор копирования
+	Fraction(const Fraction& F): num{F.num}, den{F.den}, integral(F.integral)
+	{cout << "Copy" << this << endl; }
 	void Print() {
 		cout << num << "/" << den << endl;
 	}
@@ -31,6 +39,7 @@ public:
 		C.integral = 0;
 		return C;
 	}*/
+	
 	Fraction Add(Fraction& F)
 	{
 		Fraction C;
@@ -105,6 +114,7 @@ public:
 	Fraction operator+(const Fraction& F) 
 	{
 		Fraction C;
+		cout << "Called +" << this << endl;
 		C.num = num * F.den;
 		C.den = den * F.num;
 		C.integral = 0;
@@ -130,21 +140,31 @@ public:
 	{
 		return (num * F.den <= F.num* den);
 	}
+	~Fraction() { cout << "Called destructor!" << endl; }
 };
+void Fraction::set(int& num, int& den)
+{
+	this->num = num;
+	this->den = den;
+	//code..
+}
+Fraction::Fraction() :num(0), den(1), integral{ 0 }
+{cout << "Default" << this << endl; }
 
 int main()
 {
 	int i = 0;
-
+	Fraction A;
 	Fraction F(3, 9);
 	Fraction G(5, 2);
-	Fraction I(G);
+	Fraction I(G); //Fraction I = G; Fraction I{ G };
 	//Fraction E = G.Add(G, F);
 	 //            G   +    F
 	Fraction E = G.Add(F);
 	//cout <<      G.+  (F);
 	Fraction H = G + F; 
 	//H = G.Add(F);
+	G.Print();
 	E.Print();
 	Fraction S = G.Sub(F);
 	S.Print();
@@ -161,6 +181,7 @@ int main()
 
 	int a{ 1 };
 	int b{ 2 };
+	F.set(a, b);
 	cout<< std::boolalpha;
 	//cout << (a > b);
 	cout << (G > F);

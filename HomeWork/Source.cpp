@@ -24,13 +24,17 @@ public:
 	{
 		this->integer = integer;
 	}
-	int get_numerator()
+	int get_numerator() const
 	{
 		return numerator;
 	}
-	int get_denominator()
+	int get_denominator() const
 	{
 		return denominator;
+	}
+	int get_integer()
+	{
+		return integer;
 	}
 	Fraction(int num = 0, int den = 1)
 	{
@@ -138,11 +142,15 @@ public:
 		f.denominator = sqrt(f.denominator);
 		return f;
 	}
+	Fraction Square_integer(Fraction& s) //извлечение квадратного корня из целого числа
+	{
+		return s.integer = sqrt(s.integer);
+	}
 	double Decimal(Fraction f) //перевод в десятичную дробь
 	{
 		return f.numerator / f.denominator;
 	}
-	void Print()
+	void Print() const
 	{
 		cout << numerator << "/" << denominator;
 	}
@@ -174,6 +182,9 @@ public:
 	int main()
 	{
 		setlocale(0, "");
+		Fraction s(25);
+		cout << "Square_integer: ";
+		s.Print(); cout << endl;
 		Fraction f(5, 4), f1(1,3);
 		f.Print();
 		cout << "\t";
@@ -215,8 +226,8 @@ public:
 		f2 = f.to_proper(f);
 		f2.Print();
 		cout << "\t";
-		f2 = f.Reduction(f, f1);
-		f2.Print();
+		//f2 = f.Reduction(f, f1);
+		//f2.Print();
 		cout << "\t";
         double t = f.Decimal(f);
 		cout << t;
